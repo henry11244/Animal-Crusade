@@ -1,0 +1,23 @@
+{
+  "name": "animal-crusade",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henry11244/Animal-Crusade.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/henry11244/Animal-Crusade/issues"
+  },
+  "homepage": "https://github.com/henry11244/Animal-Crusade#readme",
+  "dependencies": {
+    "grid-engine": "^2.20.0"
+  }
+}
