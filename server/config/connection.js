@@ -1,19 +1,11 @@
-const gameConfig = {
+const mongoose = require('mongoose');
 
-  
-    plugins: {
-      scene: [
-        {
-          key: "gridEngine",
-          plugin: GridEngine,
-          mapping: "gridEngine",
-        },
-      ],
-    },
-  
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/mern-set-up',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
-  };
-  
-  const game = new Phaser.Game(gameConfig);
-
-  module.exports = game;
+module.exports = mongoose.connection;
