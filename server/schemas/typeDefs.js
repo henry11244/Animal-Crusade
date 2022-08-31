@@ -5,7 +5,7 @@ const typeDefs = gql`
     _id: ID
     username: String!
     password: String!
-    scores: []
+    scores: [Int]
   }
 
   type Query {
@@ -15,8 +15,8 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(username: String!): User
-    addScore(profileId: ID!, scores: []): User
-    removeScore(profileId: ID!, scores: []): User
+    addScore(profileId: ID!, scores: [Int]): User
+    removeScore(profileId: ID!, scores: [Int]): User
   }
 `;
 
