@@ -25,6 +25,9 @@ function create() {
   this.cameras.main.startFollow(playerSprite, true);
   this.cameras.main.setFollowOffset(-playerSprite.width, -playerSprite.height);
 
+  const npcSprite = this.add.sprite(0, 0, "dog");
+  npcSprite.scale = 1.5;
+
   const gridEngineConfig = {
     characters: [
       {
@@ -32,10 +35,17 @@ function create() {
         sprite: playerSprite,
         walkingAnimationMapping: 6,
       },
+      {
+        id: "npc0",
+        sprite: npcSprite,
+        walkingAnimationMapping: 0,
+        speed: 3,
+      },
     ],
   };
 
   this.gridEngine.create(tileMap, gridEngineConfig);
+  this.gridEngine.moveRandomly("npc0");
 };
 
 
