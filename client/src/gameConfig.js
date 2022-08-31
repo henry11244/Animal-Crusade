@@ -1,16 +1,16 @@
-var config = {
-  type: Phaser.AUTO,
-  parent: 'phaser-parent',
-  pixelArt: true,
-  width: 800,
-  height: 600,
-  scene: {
-    preload: this.preload.bind(this),
-    create: this.create.bind(this)
-  }
-}
+const gameConfig = {
+  plugins: {
+    scene: [
+      {
+        key: 'gridEngine',
+        plugin: GridEngine,
+        mapping: 'gridEngine',
+      },
+    ],
+  },
+};
 
-const game = new Phaser.Game(config);
+const game = new Phaser.Game(gameConfig);
 
 function preload() {
   this.load.tilemapTiledJSON('game-map', 'map/animalcrusademap.json');

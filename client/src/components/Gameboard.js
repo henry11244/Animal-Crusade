@@ -14,9 +14,8 @@ const Gameboard = () => {
         }}
       ></canvas>
       gameboard
-      <script src="phaser.min.js"></script>
-      <script src="GridEngine.min.js"></script>
-      <script src="gameConfig.js"></script>
+
+
     </div>
   );
 };
