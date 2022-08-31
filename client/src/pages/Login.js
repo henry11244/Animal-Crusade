@@ -55,9 +55,13 @@ const Login = (props) => {
             <div className="card-body py-5 px-md-5">
               <form>
                 <div className="form-outline mb-4">
-                  <input type="email" id="form2Example1" className="form-control" />
+                  <input
+                    type="text"
+                    id="form2Example1"
+                    className="form-control"
+                  />
                   <label className="form-label" htmlFor="form2Example1">
-                    Email address
+                    Username
                   </label>
                 </div>
                 <div className="form-outline mb-4">
@@ -70,7 +74,10 @@ const Login = (props) => {
                     Password
                   </label>
                 </div>
-                <button type="button" className="btn btn-primary btn-block mb-4">
+                <button
+                  type="button"
+                  className="btn btn-primary btn-block mb-4"
+                >
                   Login
                 </button>
               </form>

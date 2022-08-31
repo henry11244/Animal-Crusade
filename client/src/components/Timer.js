@@ -1,3 +1,7 @@
-import React, { useState } from 'react';
+import React from "react";
 
-const Timer = () 
+const Timer = () => {
+  return <div> Timer </div>;
+};
+
+export default Timer;
