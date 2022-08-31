@@ -1,4 +1,20 @@
-const game = new Phaser.Game(config);
+const gameConfig = {
+
+
+    plugins: {
+      scene: [
+        {
+          key: "gridEngine",
+          plugin: GridEngine,
+          mapping: "gridEngine",
+        },
+      ],
+    },
+  
+  
+  };
+  
+  const game = new Phaser.Game(gameConfig);
 
 function preload() {
     this.load.tilemapTiledJSON("game-map", "map/animalcrusademap.json");
