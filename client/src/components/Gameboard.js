@@ -1,10 +1,12 @@
 import React from "react";
+import Timer from "./Timer";
 
 const Gameboard = () => {
   return (
-    <div>
-      gameboard
-    </div>
+    <>
+      <Timer />
+      <div>gameboard</div>
+    </>
   );
 };
 
