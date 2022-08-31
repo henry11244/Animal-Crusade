@@ -2,9 +2,9 @@ const gameConfig = {
   plugins: {
     scene: [
       {
-        key: "gridEngine",
+        key: 'gridEngine',
         plugin: GridEngine,
-        mapping: "gridEngine",
+        mapping: 'gridEngine',
       },
     ],
   },
@@ -13,21 +13,37 @@ const gameConfig = {
 const game = new Phaser.Game(gameConfig);
 
 function preload() {
-  this.load.tilemapTiledJSON("game-map", "map/animalcrusademap.json");
-}
+  this.load.tilemapTiledJSON('game-map', 'map/animalcrusademap.json');
+};
+
 
 function create() {
+  const tileMap = this.make.tilemap({ key: 'game-map' });
+
   const gridEngineConfig = {
     characters: [
       {
-        id: "player",
+        id: 'player',
         sprite: playerSprite,
         walkingAnimationMapping: 6,
       },
     ],
   };
 
-  this.gridEngine.create(tilemap, gridEngineConfig);
-}
+  this.gridEngine.create(tileMap, gridEngineConfig);
+};
 
-module.exports = { create, preload };
+function update() {
+  const cursors = this.input.keyboard.createCursorKeys();
+  if (cursors.left.isDown) {
+    this.gridEngine.move("player", "left");
+  } else if (cursors.right.isDown) {
+    this.gridEngine.move("player", "right");
+  } else if (cursors.up.isDown) {
+    this.gridEngine.move("player", "up");
+  } else if (cursors.down.isDown) {
+    this.gridEngine.move("player", "down");
+  }
+};
+
+
