@@ -12,7 +12,7 @@ const userSchema = new Schema({
     required: true,
     trim: true,
   },
-  highScores: [
+  scores: [
     {
       type: Number,
       trim: true,
