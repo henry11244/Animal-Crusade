@@ -52,7 +52,6 @@ function App() {
             </Routes> */}
           <Gameboard />
           <Scoreboard />
-          <div>app test</div>
         </div>
         <Footer />
       </div>
@@ -60,7 +59,6 @@ function App() {
     </ApolloProvider>
   );
 }
-
 
 // import './App.css';
 
@@ -70,6 +68,5 @@ function App() {
 //     <div>test app.js</div>
 //   );
 // }
-
 
 export default App;

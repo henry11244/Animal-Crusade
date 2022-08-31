@@ -1,21 +1,11 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React from "react";
 
 const Footer = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
   return (
-    <footer className="w-100 mt-auto text-dark p-4">
-      <div className="container text-center mb-5">
-        {location.pathname !== '/' && (
-          <button
-            className="btn btn-dark mb-3"
-            onClick={() => navigate(-1)}
-          >
-            &larr; Go Back
-          </button>
-        )}
-        <h4>&copy; {new Date().getFullYear()} - Tech Friends</h4>
+    <footer class="page-footer font-small blue">
+      <div class="footer-copyright text-center py-3">
+        © 2022 Copyright:
+        <a href="/"> Henry Nguyen, Chelsea Burnham, Sufyaan Vaidya</a>
       </div>
     </footer>
   );
