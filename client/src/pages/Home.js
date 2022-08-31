@@ -8,6 +8,7 @@ import { QUERY_USER } from "../utils/queries";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_USER);
+  console.log(data)
 
   return (
     <main>
