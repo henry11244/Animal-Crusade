@@ -18,7 +18,7 @@ const gameConfig = {
 
 function preload() {
     this.load.tilemapTiledJSON("game-map", "map/animalcrusademap.json");
-  }
+}
 
 function create() {
 
@@ -37,3 +37,5 @@ function create() {
   
 
   }
+
+module.exports = { create, preload };
