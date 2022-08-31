@@ -1,31 +1,30 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
+import React from "react";
+import { useQuery } from "@apollo/client";
 
-import Gameboard from '../components/Gameboard';
-import Scoreboard from '../components/Scoreboard';
+import Gameboard from "../components/Gameboard";
+import Scoreboard from "../components/Scoreboard";
 
-import { QUERY_PROFILES } from '../utils/queries';
+import { QUERY_USER } from "../utils/queries";
 
 const Home = () => {
-    const { loading, data } = useQuery(QUERY_PROFILES);
-    const profiles = data?.profiles || [];
+  const { loading, data } = useQuery(QUERY_USER);
 
-    return (
-        <main>
-            <div className="flex-row justify-center">
-                <div className="col-12 col-md-10 my-3">
-                    {loading ? (
-                        <div>Loading...</div>
-                    ) : (
-                        <ProfileList
-                            profiles={profiles}
-                            title="Here's the current roster of friends..."
-                        />
-                    )}
-                </div>
-            </div>
-        </main>
-    );
+  return (
+    <main>
+      <div className="flex-row justify-center">
+        <div className="col-12 col-md-10 my-3">
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <>
+              <Gameboard />
+              <Scoreboard />
+            </>
+          )}
+        </div>
+      </div>
+    </main>
+  );
 };
 
 export default Home;
