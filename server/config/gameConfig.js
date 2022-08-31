@@ -20,6 +20,11 @@ function preload() {
 function create() {
   const tileMap = this.make.tilemap({ key: 'game-map' });
 
+  const playerSprite = this.add.sprite(0, 0, "player");
+  playerSprite.scale = 1.5;
+  this.cameras.main.startFollow(playerSprite, true);
+  this.cameras.main.setFollowOffset(-playerSprite.width, -playerSprite.height);
+
   const gridEngineConfig = {
     characters: [
       {
@@ -32,6 +37,8 @@ function create() {
 
   this.gridEngine.create(tileMap, gridEngineConfig);
 };
+
+
 
 function update() {
   const cursors = this.input.keyboard.createCursorKeys();
