@@ -6,14 +6,16 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
+// import Home from "./pages/Home";
+// import Signup from "./pages/Signup";
+// import Login from "./pages/Login";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Gameboard from "./components/Gameboard";
+import Scoreboard from "./components/Scoreboard";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -39,20 +41,22 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
-            <Routes>
+      {/* <Router> */}
+      <div className="flex-column justify-flex-start min-100-vh">
+        <Header />
+        <div className="container">
+          {/* <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-            </Routes>
-            <div>app test</div>
-          </div>
-          <Footer />
+            </Routes> */}
+          <Gameboard />
+          <Scoreboard />
+          <div>app test</div>
         </div>
-      </Router>
+        <Footer />
+      </div>
+      {/* </Router> */}
     </ApolloProvider>
   );
 }
