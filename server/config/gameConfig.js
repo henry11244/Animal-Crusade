@@ -33,6 +33,17 @@ function create() {
   this.gridEngine.create(tileMap, gridEngineConfig);
 };
 
-
+function update() {
+  const cursors = this.input.keyboard.createCursorKeys();
+  if (cursors.left.isDown) {
+    this.gridEngine.move("player", "left");
+  } else if (cursors.right.isDown) {
+    this.gridEngine.move("player", "right");
+  } else if (cursors.up.isDown) {
+    this.gridEngine.move("player", "up");
+  } else if (cursors.down.isDown) {
+    this.gridEngine.move("player", "down");
+  }
+};
 
 
