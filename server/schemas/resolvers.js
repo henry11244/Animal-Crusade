@@ -1,25 +1,25 @@
-const { Profile } = require('../models');
+const { User } = require('../models');
 
 const resolvers = {
   Query: {
-    profiles: async () => {
-      return Profile.find();
+    users: async () => {
+      return User.find();
     },
 
-    profile: async (parent, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
+    user: async (parent, { userId }) => {
+      return User.findOne({ _id: userId });
     },
   },
 
   Mutation: {
-    addProfile: async (parent, { name }) => {
-      return Profile.create({ name });
+    addUser: async (parent, { username, password}) => {
+      return User.create({ username, password });
     },
-    addSkill: async (parent, { profileId, skill }) => {
-      return Profile.findOneAndUpdate(
-        { _id: profileId },
+    addScore: async (parent, { userId, scores }) => {
+      return User.findOneAndUpdate(
+        { _id: userId },
         {
-          $addToSet: { skills: skill },
+          $addToSet: { scores: scores },
         },
         {
           new: true,
@@ -27,13 +27,10 @@ const resolvers = {
         }
       );
     },
-    removeProfile: async (parent, { profileId }) => {
-      return Profile.findOneAndDelete({ _id: profileId });
-    },
-    removeSkill: async (parent, { profileId, skill }) => {
-      return Profile.findOneAndUpdate(
-        { _id: profileId },
-        { $pull: { skills: skill } },
+    removeScore: async (parent, { userId, scores }) => {
+      return User.findOneAndUpdate(
+        { _id: userId },
+        { $pull: { scores: scores } },
         { new: true }
       );
     },
