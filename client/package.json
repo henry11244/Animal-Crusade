@@ -8,16 +8,18 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "gh-pages": "^3.2.3",
+    "lodash": "4.17.15",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
+    "react-game-engine": "1.0.0",
     "react-scripts": "4.0.3",
     "react-tsparticles": "^1.37.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts  build",
+    "build": "react-scripts build",
     "build-localhost": "PUBLIC_URL=/ react-scripts   build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -27,6 +29,9 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "devDependencies": {
+    "typescript": "3.8.3"
   },
   "browserslist": {
     "production": [
