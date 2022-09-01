@@ -45,7 +45,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
+            <Route path="/signup" element={<Signup />} />
           </Routes>
         </div>
         <Footer />
@@ -55,3 +55,4 @@ function App() {
 }
 
 export default App;
+
