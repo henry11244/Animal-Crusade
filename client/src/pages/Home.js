@@ -1,5 +1,5 @@
 import React from "react";
-import { useQuery } from "@apollo/client";
+// import { useQuery } from "@apollo/client";
 
 import Gameboard from "../components/Gameboard";
 import Scoreboard from "../components/Scoreboard";
@@ -8,7 +8,7 @@ import Scoreboard from "../components/Scoreboard";
 
 const Home = () => {
   // const { loading, data } = useQuery(QUERY_USER);
-  // console.log(data)
+  // console.log(data);
 
   return (
     <main>
@@ -17,10 +17,10 @@ const Home = () => {
           {/* {loading ? (
             <div>Loading...</div>
           ) : ( */}
-          <>
-            <Gameboard />
-            <Scoreboard />
-          </>
+            <>
+              <Gameboard />
+              <Scoreboard />
+            </>
           {/* )} */}
         </div>
       </div>

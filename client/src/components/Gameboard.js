@@ -1,4 +1,4 @@
-
+import Timer from "./Timer";
 import React from "react";
 import { GameEngine } from "react-game-engine";
 
@@ -12,6 +12,7 @@ const styles = {
     width: "100%",
     height: "100%"
   }
+
 };
 
 export default class App extends React.Component {
@@ -60,6 +61,7 @@ export default class App extends React.Component {
     const { running } = this.state;
     return (
       <div className="game">
+        <Timer />
         <div className="game__container">
           <GameEngine
             ref={this.gameEngine}

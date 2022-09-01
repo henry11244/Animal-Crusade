@@ -4,7 +4,6 @@ const path = require('path');
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
-const { create, preload } = require('./config/gameConfig');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
