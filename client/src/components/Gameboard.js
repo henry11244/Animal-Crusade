@@ -60,8 +60,8 @@ export default class App extends React.Component {
   render() {
     const { running } = this.state;
     return (
-      <div className="game">
-        <Timer />
+      <div className="game border col-9">
+
         <div className="game__container">
           <GameEngine
             ref={this.gameEngine}

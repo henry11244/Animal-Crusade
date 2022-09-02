@@ -11,19 +11,19 @@ const Home = () => {
   // console.log(data);
 
   return (
-    <main>
-      <div className="flex-row justify-center">
-        <div className="col-12 col-md-10 my-3">
-          {/* {loading ? (
+    <main className="d-flex col-12  ">
+      {/* {loading ? (
             <div>Loading...</div>
           ) : ( */}
-            <>
-              <Gameboard />
-              <Scoreboard />
-            </>
-          {/* )} */}
+      <>
+        <div className="col-10">
+          <Gameboard />
         </div>
-      </div>
+        <div className="col-2 border">
+          <Scoreboard />
+        </div>
+      </>
+      {/* )} */}
     </main>
   );
 };
