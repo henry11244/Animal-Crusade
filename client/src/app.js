@@ -14,8 +14,6 @@ import Login from "./pages/Login";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Gameboard from "./components/Gameboard";
-import Scoreboard from "./components/Scoreboard";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
