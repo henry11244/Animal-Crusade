@@ -1,6 +1,5 @@
 const Jump = (entities, { input }) => {
     const { payload } = input.find((x) => x.name === "onKeyDown") || {};
-    console.log(input);
     if (payload) {
         if (payload.key === " ") {
             const dot = entities["dot"];
@@ -27,6 +26,10 @@ const GameControls = (entities, { events }) => {
 
             const dot = entities["dot"];
             dot.running = true;
+
+            if(dot.x >= blocks.x && dot.y <= blocks.y) {
+                console.log('you lose')
+            }
         } else if (gameStopped) {
             const blocks = entities["blocks"];
             blocks.running = false;
