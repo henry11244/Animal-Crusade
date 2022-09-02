@@ -78,6 +78,8 @@ export default class App extends React.Component {
               },
               blocks: {
                 renderer: Blocks,
+                x: 24,
+                y: 300,
                 running: running
               }
             }}
@@ -90,5 +92,6 @@ export default class App extends React.Component {
         </div>
       </div>
     );
-  }
+  };
+
 }
