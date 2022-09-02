@@ -62,7 +62,7 @@ const Login = (props) => {
                       placeholder="Your username"
                       id="form2Example1"
                       className="form-control"
-                      value={userLogin.username}
+                      // value={userLogin.username}
                       onChange={handleChange}
                     />
                     <label className="form-label" htmlFor="form2Example1">
@@ -72,10 +72,10 @@ const Login = (props) => {
                   <div className="form-outline mb-4">
                     <input
                       type="password"
-                      placeholder="******"
+                      placeholder="Password"
                       id="form2Example2"
                       className="form-control"
-                      value={userLogin.password}
+                      // value={userLogin.password}
                       onChange={handleChange}
                     />
 

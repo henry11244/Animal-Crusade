@@ -62,7 +62,7 @@ const Signup = () => {
                       placeholder="Your username"
                       id="form2Example1"
                       className="form-control"
-                      value={newUser.username}
+                      // value={newUser.username}
                       onChange={handleChange}
                     />
                     <label className="form-label" htmlFor="form2Example1">
@@ -72,10 +72,10 @@ const Signup = () => {
                   <div className="form-outline mb-4">
                     <input
                       type="password"
-                      placeholder="******"
+                      placeholder="Password"
                       id="form2Example2"
                       className="form-control"
-                      value={newUser.password}
+                      // value={newUser.password}
                       onChange={handleChange}
                     />
                     <label className="form-label" htmlFor="form2Example2">
