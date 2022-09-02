@@ -1,4 +1,3 @@
-import Timer from "./Timer";
 import React from "react";
 import { GameEngine } from "react-game-engine";
 
@@ -60,6 +59,7 @@ export default class App extends React.Component {
   render() {
     const { running } = this.state;
     return (
+      
       <div className="game border col-9">
 
         <div className="game__container">
