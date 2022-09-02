@@ -2,7 +2,6 @@ import React from "react";
 // import { useQuery } from "@apollo/client";
 
 import Gameboard from "../components/Gameboard";
-import Scoreboard from "../components/Scoreboard";
 import Timer from "../components/Timer";
 
 // import { QUERY_USER } from "../utils/queries";
@@ -22,9 +21,6 @@ const Home = () => {
         </div>
         <div className="col-10">
           <Gameboard />
-        </div>
-        <div className="col-2 border">
-          <Scoreboard />
         </div>
       </>
       {/* )} */}

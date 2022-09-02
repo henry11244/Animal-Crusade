@@ -94,7 +94,7 @@ const Signup = () => {
                 </form>
               )}
               {error && (
-                <div classNameName="my-3 p-3 bg-danger text-white">
+                <div className="my-3 p-3 bg-danger text-white">
                   {error.message}
                 </div>
               )}

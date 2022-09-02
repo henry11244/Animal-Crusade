@@ -5,7 +5,6 @@ const typeDefs = gql`
     _id: ID
     username: String!
     password: String!
-    scores: [Int]
   }
 
   type Query {
@@ -20,6 +19,3 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
-
-// addScore(profileId: ID!, scores: [Int]): User
-//     removeScore(profileId: ID!, scores: [Int]): User
