@@ -12,12 +12,6 @@ const userSchema = new Schema({
     required: true,
     trim: true,
   },
-  scores: [
-    {
-      type: Number,
-      trim: true,
-    },
-  ],
 });
 
 const User = model('User', userSchema);
