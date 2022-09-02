@@ -14,11 +14,12 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    login()
+    login(username: String!, password: String!): User
     addUser(username: String!, password: String!): User
-    addScore(profileId: ID!, scores: [Int]): User
-    removeScore(profileId: ID!, scores: [Int]): User
   }
 `;
 
 module.exports = typeDefs;
+
+// addScore(profileId: ID!, scores: [Int]): User
+//     removeScore(profileId: ID!, scores: [Int]): User
