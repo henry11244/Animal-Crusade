@@ -1,7 +1,7 @@
 import React from "react";
 
 const Scoreboard = () => {
-  return <div> Scoreboard </div>;
+  return <div className=""> Scoreboard </div>;
 };
 
 export default Scoreboard;

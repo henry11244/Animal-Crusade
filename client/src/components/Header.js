@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Timer from "./Timer";
 import Auth from "../utils/auth";
 
 const Header = () => {
@@ -10,7 +10,10 @@ const Header = () => {
   };
   return (
     <header className="bg-info text-dark mb-4 py-3 display-flex align-center">
+
+
       <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
+
         <Link className="text-dark" to="/">
           <h1 className="m-0" style={{ fontSize: "3rem" }}>
             Animal Crusade
@@ -34,6 +37,9 @@ const Header = () => {
             </>
           )}
         </div>
+      </div>
+      <div className="border col-1 ml-5 rounded-circle">
+        <Timer />
       </div>
     </header>
   );

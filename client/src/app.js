@@ -39,17 +39,22 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="flex-column justify-flex-start min-100-vh">
-        <Header />
-        <div className="container">
+      <div className="d-flex flex-column justify-flex-start min-100-vh">
+        <div>
+          <Header />
+        </div>
+        <div className="container col-12">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
           </Routes>
         </div>
-        <Footer />
+
+
       </div>
+      <Footer />
+
     </ApolloProvider>
   );
 }
