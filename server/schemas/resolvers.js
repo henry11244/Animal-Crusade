@@ -15,25 +15,28 @@ const resolvers = {
     addUser: async (parent, { username, password}) => {
       return User.create({ username, password });
     },
-    addScore: async (parent, { userId, scores }) => {
-      return User.findOneAndUpdate(
-        { _id: userId },
-        {
-          $addToSet: { scores: scores },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
-    },
-    removeScore: async (parent, { userId, scores }) => {
-      return User.findOneAndUpdate(
-        { _id: userId },
-        { $pull: { scores: scores } },
-        { new: true }
-      );
-    },
+    login: async (parent, { username, password}) => {
+      return User.findOne({username, password});
+    }, 
+    // addScore: async (parent, { userId, scores }) => {
+    //   return User.findOneAndUpdate(
+    //     { _id: userId },
+    //     {
+    //       $addToSet: { scores: scores },
+    //     },
+    //     {
+    //       new: true,
+    //       runValidators: true,
+    //     }
+    //   );
+    // },
+    // removeScore: async (parent, { userId, scores }) => {
+    //   return User.findOneAndUpdate(
+    //     { _id: userId },
+    //     { $pull: { scores: scores } },
+    //     { new: true }
+    //   );
+    // },
   },
 };
 
