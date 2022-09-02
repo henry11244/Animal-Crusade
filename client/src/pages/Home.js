@@ -3,6 +3,7 @@ import React from "react";
 
 import Gameboard from "../components/Gameboard";
 import Scoreboard from "../components/Scoreboard";
+import Timer from "../components/Timer";
 
 // import { QUERY_USER } from "../utils/queries";
 
@@ -16,6 +17,9 @@ const Home = () => {
             <div>Loading...</div>
           ) : ( */}
       <>
+        <div className="border col-1" id='timer' >
+          <Timer />
+        </div>
         <div className="col-10">
           <Gameboard />
         </div>

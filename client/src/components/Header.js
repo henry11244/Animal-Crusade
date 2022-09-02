@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Timer from "./Timer";
+
 import Auth from "../utils/auth";
 
 const Header = () => {
@@ -37,9 +37,6 @@ const Header = () => {
             </>
           )}
         </div>
-      </div>
-      <div className="border col-1 ml-5 rounded-circle">
-        <Timer />
       </div>
     </header>
   );
