@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useMutation } from "@apollo/client";
-import { LOGIN_USER } from "../utils/mutations";
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { Link } from 'react-router-dom';
+import { LOGIN } from '../utils/mutations';
+import Auth from '../utils/auth';
 
-import Auth from "../utils/auth";
 
 const Login = (props) => {
   const [userLogin, setUserLogin] = useState({ username: "", password: "" });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login, { error, data }] = useMutation(LOGIN);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -58,28 +58,28 @@ const Login = (props) => {
                 <form onSubmit={handleFormSubmit}>
                   <div className="form-outline mb-4">
                     <input
+                      placeholder="username"
+                      name="username"
                       type="text"
-                      placeholder="Your username"
-                      id="form2Example1"
                       className="form-control"
-                      // value={userLogin.username}
+                      id="username"
                       onChange={handleChange}
                     />
-                    <label className="form-label" htmlFor="form2Example1">
+                    <label className="form-label" htmlFor="username">
                       Username
                     </label>
                   </div>
                   <div className="form-outline mb-4">
                     <input
+                      placeholder="******"
+                      name="password"
                       type="password"
-                      placeholder="Password"
-                      id="form2Example2"
                       className="form-control"
-                      // value={userLogin.password}
+                      id="pwd"
                       onChange={handleChange}
                     />
 
-                    <label className="form-label" htmlFor="form2Example2">
+                    <label className="form-label" htmlFor="password">
                       Password
                     </label>
                   </div>

@@ -45,7 +45,7 @@ const client = new ApolloClient({
 function App() {
   const [birdPosition, setBirdPosition] = useState(250);
 
-  useEffect( () => {
+  useEffect(() => {
 
     let timeId;
     if (birdPosition < gameHeight - birdSize) {
@@ -62,8 +62,8 @@ function App() {
     let newBirdPosition = birdPosition - JumpHeight;
     if (newBirdPosition < 0) {
       setBirdPosition(0);
-    }else {
-    setBirdPosition(newBirdPosition)
+    } else {
+      setBirdPosition(newBirdPosition)
     }
   }
 
@@ -86,8 +86,8 @@ function App() {
       </div>
       <Box onClick={handleClick}>
         <GameBox height={gameHeight} width={gameWidth}>
-      <Bird size={birdSize} top={birdPosition}/>
-      </GameBox>
+          <Bird size={birdSize} top={birdPosition} />
+        </GameBox>
       </Box>
 
       <Footer />
