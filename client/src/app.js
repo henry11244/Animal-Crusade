@@ -1,12 +1,14 @@
-import React from "react";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-} from "@apollo/client";
-import { setContext } from "@apollo/client/link/context";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
+
 import { StoreProvider } from './utils/GlobalState';
 
 import Home from "./pages/Home";
@@ -17,15 +19,15 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem("id_token");
+  const token = localStorage.getItem('id_token');
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : "",
+      authorization: token ? `Bearer ${token}` : '',
     },
   };
 });
@@ -38,21 +40,32 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="d-flex flex-column justify-flex-start min-100-vh">
-        <div>
-          <Header />
-        </div>
-        <StoreProvider>
-          <div className="container col-12">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-            </Routes>
+      <Router>
+        <div className="d-flex flex-column justify-flex-start min-100-vh">
+          <div>
+            <Header />
           </div>
-        </StoreProvider>
-      </div>
-      <Footer />
+          <StoreProvider>
+            <div className="container col-12">
+              <Routes>
+                <Route
+                  path="/"
+                  element={<Home />}
+                />
+                <Route
+                  path="/login"
+                  element={<Login />}
+                />
+                <Route
+                  path="/signup"
+                  element={<Signup />}
+                />
+              </Routes>
+            </div>
+          </StoreProvider>
+        </div>
+        <Footer />
+      </Router>
     </ApolloProvider >
   );
 }
