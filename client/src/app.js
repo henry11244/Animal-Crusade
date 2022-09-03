@@ -15,6 +15,9 @@ import Login from "./pages/Login";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import styled from 'styled-components';
+
+const birdSize = 20;
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -52,6 +55,9 @@ function App() {
           </div>
         </StoreProvider>
       </div>
+      <div className="App">
+        <Bird size={birdSize}/>
+      </div>
       <Footer />
     </ApolloProvider >
   );
@@ -59,3 +65,12 @@ function App() {
 
 export default App;
 
+const Bird = styled.div`
+position: relative;
+margin-left: 50px;
+margin-top: 400px;
+background-color: red;
+height: ${(props) => props.size}px;
+width: ${(props) => props.size}px;
+top: ${(props) => props.size}px;
+border-radius: 50%`
