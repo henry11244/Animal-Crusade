@@ -57,32 +57,10 @@ export default class App extends React.Component {
   };
 
   render() {
-    const { running } = this.state;
     return (
       
       <div className="game border col-9">
 
-        <div className="game__container">
-          <GameEngine
-            ref={this.gameEngine}
-            running={running}
-            onEvent={this.handleGameEvent}
-            style={styles.container}
-            systems={[Jump, GameControls]}
-            entities={{
-              dot: {
-                renderer: Dot,
-                x: 24,
-                y: 300,
-                running: running
-              },
-              blocks: {
-                renderer: Blocks,
-                running: running
-              }
-            }}
-          />
-        </div>
         <div className="game__instructions">
           <p>
             <code>Space</code> to Jump | <code>Esc</code> to Stop
@@ -92,4 +70,5 @@ export default class App extends React.Component {
     );
   };
 
-}
+};
+
