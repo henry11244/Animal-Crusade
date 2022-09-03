@@ -21,6 +21,7 @@ const birdSize = 20;
 const gameWidth = 1000;
 const gameHeight = 700;
 const Gravity = 6;
+const JumpHeight = 50;
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -55,7 +56,12 @@ function App() {
     return () => {
       clearInterval(timeId)
     }
-  })
+  });
+
+  const handleClick = () => {
+    let newBirdPosition = birdPosition - JumpHeight;
+    setBirdPosition(newBirdPosition)
+  }
 
 
   return (
@@ -74,7 +80,7 @@ function App() {
           </div>
         </StoreProvider>
       </div>
-      <Box>
+      <Box onClick={handleClick}>
         <GameBox height={gameHeight} width={gameWidth}>
       <Bird size={birdSize} top={birdPosition}/>
       </GameBox>
