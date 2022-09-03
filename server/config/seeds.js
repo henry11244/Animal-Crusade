@@ -5,20 +5,19 @@ db.once('open', async () => {
 
   await User.deleteMany();
 
-  await User.insertMany([
-    {
-      username: "chelseaburnham",
-      password: "password"
-    },
-    {
-      username: "henrynguyen",
-      password: "password"
-    },
-    {
-      username: "sufyaanvaidya",
-      password: "password"
-    },
-  ])
+  await User.create({
+    username: "chelseaburnham",
+    password: "passwords"
+  })
+  await User.create({
+    username: "henrynguyen",
+    password: "passwords"
+  })
+  await User.create({
+    username: "sufyaanvaidya",
+    password: "passwords"
+  })
+
 
   console.log('users seeded');
 

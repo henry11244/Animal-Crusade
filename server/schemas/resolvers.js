@@ -8,8 +8,7 @@ const resolvers = {
 
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-        });
+        const user = await User.findById(context.user._id)
 
         return user;
       }
@@ -23,6 +22,7 @@ const resolvers = {
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
+
       return { token, user };
     },
 
@@ -35,17 +35,18 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
-    login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+    login: async (parent, { username, password }) => {
+      const user = await User.findOne({ username });
 
       if (!user) {
-        throw new AuthenticationError('Incorrect credentials');
+
+        throw new AuthenticationError(`Incorrect credentials ${username}`);
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError(`Incorrect credentials ${correctPw}`);
       }
 
       const token = signToken(user);
