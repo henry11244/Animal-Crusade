@@ -11,6 +11,7 @@ module.exports = {
     // ["Bearer", "<tokenvalue>"]
     if (req.headers.authorization) {
       token = token.split(' ').pop().trim();
+
     }
 
     if (!token) {
@@ -26,8 +27,8 @@ module.exports = {
 
     return req;
   },
-  signToken: function ({ firstName, email, _id }) {
-    const payload = { firstName, email, _id };
+  signToken: function ({ username, _id }) {
+    const payload = { username, _id };
 
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
