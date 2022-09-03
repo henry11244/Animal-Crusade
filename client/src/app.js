@@ -55,9 +55,10 @@ function App() {
           </div>
         </StoreProvider>
       </div>
-      <div className="App">
-        <Bird size={birdSize}/>
-      </div>
+      <Box>
+      <Bird size={birdSize}/>
+      </Box>
+
       <Footer />
     </ApolloProvider >
   );
@@ -67,10 +68,14 @@ export default App;
 
 const Bird = styled.div`
 position: relative;
-margin-left: 50px;
-margin-top: 400px;
 background-color: red;
 height: ${(props) => props.size}px;
 width: ${(props) => props.size}px;
 top: ${(props) => props.size}px;
-border-radius: 50%`
+border-radius: 50%`;
+
+const Box = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+`
