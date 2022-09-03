@@ -20,6 +20,7 @@ import styled from 'styled-components';
 const birdSize = 20;
 const gameWidth = 1000;
 const gameHeight = 700;
+const Gravity = 6;
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -42,6 +43,19 @@ const client = new ApolloClient({
 
 function App() {
   const [birdPosition, setBirdPosition] = useState(250);
+
+  useEffect( () => {
+
+    let timeId;
+    if (birdPosition < gameHeight - birdSize) {
+      timeId = setInterval(() => {
+        setBirdPosition(birdPosition => birdPosition + Gravity)
+      }, 24);
+    }
+    return () => {
+      clearInterval(timeId)
+    }
+  })
 
 
   return (
