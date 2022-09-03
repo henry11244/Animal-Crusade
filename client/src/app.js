@@ -7,7 +7,6 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { StoreProvider } from './utils/GlobalState';
 
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
@@ -74,15 +73,13 @@ function App() {
         <div>
           <Header />
         </div>
-        <StoreProvider>
-          <div className="container col-12">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-            </Routes>
-          </div>
-        </StoreProvider>
+        <div className="container col-12">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
+        </div>
       </div>
       <Box onClick={handleClick}>
         <GameBox height={gameHeight} width={gameWidth}>
