@@ -15,14 +15,9 @@ const Home = () => {
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <>
-          <div className="border col-1" id='timer' >
-            <Timer />
-          </div>
-          <div className="col-10">
-            <Gameboard />
-          </div>
-        </>
+        <div className="col-10">
+          <Gameboard />
+        </div>
       )}
     </main>
   );
