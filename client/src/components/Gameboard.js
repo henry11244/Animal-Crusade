@@ -8,7 +8,7 @@ import "../styles.css";
 // import { Dot, Blocks } from "../renderers";
 
 const Bird = styled.div`
-position: relative;
+position: absolute;
 background-color: red;
 height: ${(props) => props.size}px;
 width: ${(props) => props.size}px;
@@ -19,12 +19,22 @@ const Box = styled.div`
  display: flex;
  width: 100%;
  justify-content: center;
-`
+`;
 
 const GameBox = styled.div`
  height: ${(props) => props.height}px;
  width: ${(props) => props.width}px;
  background-color: cyan;
+`;
+
+const Obstacle = styled.div`
+position: relative;
+top: ${(props) => props.top}px;  
+background-color: green;
+width: ${(props) => props.width}px;
+height: ${(props) => props.height}px;
+left: ${(props) => props.left}px;
+
 `
 
 const birdSize = 20;
@@ -32,6 +42,7 @@ const gameWidth = 1000;
 const gameHeight = 700;
 const Gravity = 6;
 const JumpHeight = 100;
+const obstacleWidth = 40;
 
 // const styles = {
 //   container: {
@@ -86,6 +97,8 @@ const JumpHeight = 100;
 function Gameboard() {
   const [birdPosition, setBirdPosition] = useState(250);
   const [ gameHasStarted, setGameHasStarted ] = useState(false);
+  const [ obstacleHeight, setObstacleHeight ] = useState(200);
+  const [ obstacleLeft, setObstacleLeft ] = useState(gameWidth - obstacleWidth);
 
   useEffect(() => {
 
@@ -125,6 +138,12 @@ function Gameboard() {
       </div>
       <Box onClick={handleClick}>
         <GameBox height={gameHeight} width={gameWidth}>
+          <Obstacle
+          top= {0}
+          width= {obstacleWidth}
+          height= {obstacleHeight}
+          left= {obstacleLeft}
+          />
           <Bird size={birdSize} top={birdPosition} />
         </GameBox>
       </Box>
