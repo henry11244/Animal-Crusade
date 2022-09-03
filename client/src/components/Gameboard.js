@@ -1,74 +1,132 @@
-import React from "react";
-import { GameEngine } from "react-game-engine";
-
-import { Jump, GameControls } from "../systems";
-import { Dot, Blocks } from "../renderers";
-
+import { React, useEffect, useState } from "react";
+import styled from 'styled-components';
+import Timer from "../components/Timer";
 import "../styles.css";
 
-const styles = {
-  container: {
-    width: "100%",
-    height: "100%"
-  }
+// import { GameEngine } from "react-game-engine";
+// import { Jump, GameControls } from "../systems";
+// import { Dot, Blocks } from "../renderers";
 
-};
+const Bird = styled.div`
+position: relative;
+background-color: red;
+height: ${(props) => props.size}px;
+width: ${(props) => props.size}px;
+top: ${(props) => props.top}px;
+border-radius: 50%`;
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      running: false,
-      paused: false
-    };
-    this.gameEngine = React.createRef();
-  }
-  componentDidMount() {
-    document.addEventListener("keydown", this.handleKeyDown, false);
-  }
+const Box = styled.div`
+ display: flex;
+ width: 100%;
+ justify-content: center;
+`
 
-  componentWillUnmount() {
-    document.removeEventListener("keydown", this.handleKeyDown, false);
-  }
+const GameBox = styled.div`
+ height: ${(props) => props.height}px;
+ width: ${(props) => props.width}px;
+ background-color: cyan;
+`
 
-  handleKeyDown = e => {
-    e.preventDefault();
+const birdSize = 20;
+const gameWidth = 1000;
+const gameHeight = 700;
+const Gravity = 6;
+const JumpHeight = 100;
 
-    if (e.keyCode === 32 && this.state.running === false) {
-      this.setState({
-        running: true
-      });
-      this.gameEngine.current.start();
-    } else if (e.keyCode === 32 && this.state.paused) {
-      this.setState({
-        paused: false
-      });
-      this.gameEngine.current.dispatch({ type: "unpaused" });
-    } else if (e.keyCode === 27) {
-      this.setState({
-        paused: true
-      });
-      this.gameEngine.current.dispatch({ type: "pause" });
+// const styles = {
+//   container: {
+//     width: "100%",
+//     height: "100%"
+//   }
+// };
+
+// export default class App extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       running: false,
+//       paused: false
+//     };
+//     this.gameEngine = React.createRef();
+//   }
+//   componentDidMount() {
+//     document.addEventListener("keydown", this.handleKeyDown, false);
+//   }
+
+//   componentWillUnmount() {
+//     document.removeEventListener("keydown", this.handleKeyDown, false);
+//   }
+
+//   handleKeyDown = e => {
+//     e.preventDefault();
+
+//     if (e.keyCode === 32 && this.state.running === false) {
+//       this.setState({
+//         running: true
+//       });
+//       this.gameEngine.current.start();
+//     } else if (e.keyCode === 32 && this.state.paused) {
+//       this.setState({
+//         paused: false
+//       });
+//       this.gameEngine.current.dispatch({ type: "unpaused" });
+//     } else if (e.keyCode === 27) {
+//       this.setState({
+//         paused: true
+//       });
+//       this.gameEngine.current.dispatch({ type: "pause" });
+//     }
+//   };
+
+//   handleGameEvent = e => {
+//     console.log("game event => ", e);
+//   };
+// };
+
+function Gameboard() {
+  const [birdPosition, setBirdPosition] = useState(250);
+
+  useEffect(() => {
+
+    let timeId;
+    if (birdPosition < gameHeight - birdSize) {
+      timeId = setInterval(() => {
+        setBirdPosition(birdPosition => birdPosition + Gravity)
+      }, 24);
+    }
+    return () => {
+      clearInterval(timeId)
+    }
+  });
+
+  const handleClick = () => {
+    let newBirdPosition = birdPosition - JumpHeight;
+    if (newBirdPosition < 0) {
+      setBirdPosition(0);
+    } else {
+      setBirdPosition(newBirdPosition)
     }
   };
 
-  handleGameEvent = e => {
-    console.log("game event => ", e);
-  };
-
-  render() {
-    return (
-      
+  return (
+    <>
+      <div className="border col-1" id='timer' >
+        <Timer />
+      </div>
       <div className="game border col-9">
-
         <div className="game__instructions">
           <p>
             <code>Space</code> to Jump | <code>Esc</code> to Stop
           </p>
         </div>
       </div>
-    );
-  };
-
+      <Box onClick={handleClick}>
+        <GameBox height={gameHeight} width={gameWidth}>
+          <Bird size={birdSize} top={birdPosition} />
+        </GameBox>
+      </Box>
+    </>
+  );
 };
 
+export default Gameboard;
