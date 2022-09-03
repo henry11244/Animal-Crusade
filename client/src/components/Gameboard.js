@@ -43,6 +43,7 @@ const gameHeight = 700;
 const Gravity = 6;
 const JumpHeight = 100;
 const obstacleWidth = 40;
+const obstacleGap = 200;
 
 // const styles = {
 //   container: {
@@ -95,10 +96,12 @@ const obstacleWidth = 40;
 // };
 
 function Gameboard() {
-  const [birdPosition, setBirdPosition] = useState(250);
+  const [birdPosition, setBirdPosition] = useState(350);
   const [ gameHasStarted, setGameHasStarted ] = useState(false);
-  const [ obstacleHeight, setObstacleHeight ] = useState(200);
+  const [ obstacleHeight, setObstacleHeight ] = useState(250);
   const [ obstacleLeft, setObstacleLeft ] = useState(gameWidth - obstacleWidth);
+
+  const bottomObstacleHeight = gameHeight - obstacleGap - obstacleHeight;
 
   useEffect(() => {
 
@@ -140,6 +143,12 @@ function Gameboard() {
         <GameBox height={gameHeight} width={gameWidth}>
           <Obstacle
           top= {0}
+          width= {obstacleWidth}
+          height= {obstacleHeight}
+          left= {obstacleLeft}
+          />
+          <Obstacle
+          top= {gameHeight - (obstacleHeight + bottomObstacleHeight)}
           width= {obstacleWidth}
           height= {obstacleHeight}
           left= {obstacleLeft}
