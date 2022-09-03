@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import {
   ApolloClient,
   InMemoryCache,
@@ -18,6 +18,8 @@ import Footer from "./components/Footer";
 import styled from 'styled-components';
 
 const birdSize = 20;
+const gameWidth = 1000;
+const gameHeight = 700;
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -39,6 +41,9 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [birdPosition, setBirdPosition] = useState(250);
+
+
   return (
     <ApolloProvider client={client}>
       <div className="d-flex flex-column justify-flex-start min-100-vh">
@@ -56,7 +61,9 @@ function App() {
         </StoreProvider>
       </div>
       <Box>
-      <Bird size={birdSize}/>
+        <GameBox height={gameHeight} width={gameWidth}>
+      <Bird size={birdSize} top={birdPosition}/>
+      </GameBox>
       </Box>
 
       <Footer />
@@ -71,11 +78,18 @@ position: relative;
 background-color: red;
 height: ${(props) => props.size}px;
 width: ${(props) => props.size}px;
-top: ${(props) => props.size}px;
+top: ${(props) => props.top}px;
 border-radius: 50%`;
 
 const Box = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
+`
+
+const GameBox = styled.div`
+  height: ${(props) => props.height}px;
+  width: ${(props) => props.width}px;
+  background-color: cyan;
+
 `
