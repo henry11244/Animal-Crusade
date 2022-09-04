@@ -116,6 +116,22 @@ function Gameboard() {
     }
   }, [ birdPosition, gameHasStarted ]);
 
+  useEffect(() => {
+    let obstacleId;
+    if(gameHasStarted && obstacleLeft >= -obstacleWidth) {
+      obstacleId = setInterval(() => {
+        setObstacleLeft((obstacleLeft) => obstacleLeft - 5);
+      }, 24);
+      return () => {
+        clearInterval(obstacleId);
+      }
+    }
+    else {
+      setObstacleLeft(gameWidth - obstacleWidth);
+      setObstacleHeight(Math.floor(Math.random() * (gameHeight - obstacleGap)));
+    }
+  }) 
+
   const handleClick = () => {
     let newBirdPosition = birdPosition - JumpHeight;
     if(!gameHasStarted) {
