@@ -14,6 +14,7 @@ import Login from "./pages/Login";
  
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Auth from "./utils/auth";
 // import styled from 'styled-components';
  
 // const birdSize = 20;
@@ -66,7 +67,9 @@ function App() {
  //   }
  // }
  
+ 
  return (
+  
    <ApolloProvider client={client}>
      <div className="d-flex flex-column justify-flex-start min-100-vh">
        <div>
@@ -74,9 +77,20 @@ function App() {
        </div>
        <div className="container col-12">
          <Routes>
-           <Route path="/" element={<Home />} />
+         {Auth.loggedIn() ? (
+            <>
+                <Route path="/" element={<Home />} />
            <Route path="/login" element={<Login />} />
            <Route path="/signup" element={<Signup />} />
+            </>
+          ) : (
+            <>
+               <Route path="/" element={<Login />} />
+           <Route path="/login" element={<Login />} />
+           <Route path="/signup" element={<Signup />} />
+            </>
+          )}
+           
          </Routes>
        </div>
      </div>
