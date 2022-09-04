@@ -96,9 +96,9 @@ const obstacleGap = 200;
 // };
 
 function Gameboard() {
-  const [birdPosition, setBirdPosition] = useState(350);
+  const [birdPosition, setBirdPosition] = useState(250);
   const [ gameHasStarted, setGameHasStarted ] = useState(false);
-  const [ obstacleHeight, setObstacleHeight ] = useState(250);
+  const [ obstacleHeight, setObstacleHeight ] = useState(100);
   const [ obstacleLeft, setObstacleLeft ] = useState(gameWidth - obstacleWidth);
 
   const bottomObstacleHeight = gameHeight - obstacleGap - obstacleHeight;
@@ -150,7 +150,7 @@ function Gameboard() {
           <Obstacle
           top= {gameHeight - (obstacleHeight + bottomObstacleHeight)}
           width= {obstacleWidth}
-          height= {obstacleHeight}
+          height= {bottomObstacleHeight}
           left= {obstacleLeft}
           />
           <Bird size={birdSize} top={birdPosition} />
