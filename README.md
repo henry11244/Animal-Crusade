@@ -56,8 +56,11 @@ Once you have navagated to the deployed link below:
 - Once you login, you are able to play the game helping Jerome navigate through the bootcamp.
 - During each round, your score is presented at the top of the game window and highscores are saved to your account. 
 
-![Overview](assets/overviewgif.gif)
+<b>Signup & Login</b>
+![signup & Login Gif](img/signup%26login.gif)
 
+<b>Game:</b>
+![signup & Login Gif](img/game.gif)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -75,6 +78,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 [Sufyaan Vaidya](vaidyasufyaan@gmail.com)
 
-[Repository Link](https://henry11244.github.io/animal-crusade/)
+[Repository Link](https://github.com/henry11244/Animal-Crusade)
 
 
