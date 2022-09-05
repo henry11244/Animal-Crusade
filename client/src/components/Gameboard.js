@@ -1,47 +1,43 @@
 import { React, useEffect, useState } from "react";
 import styled from 'styled-components';
-import Timer from "../components/Timer";
-import "../styles.css";
 
 const Bird = styled.div`
-position: absolute;
-
-height: ${(props) => props.size}px;
-width: ${(props) => props.size}px;
-top: ${(props) => props.top}px;
-background: url('mvp.jfif');
-
-background-repeat: no-repeat;
+  position: absolute;
+  height: ${(props) => props.size}px;
+  width: ${(props) => props.size}px;
+  top: ${(props) => props.top}px;
+  background: url('mvp.jfif');
+  background-repeat: no-repeat;
   background-size: 20px 20px;
-border-radius: 50%`;
+  border-radius: 50%
+  `;
 
 const Box = styled.div`
- display: flex;
- width: 100%;
- justify-content: center;
- & span{
-  color: white;
-  font-size: 24px;
-  position: absolute;
- }
-`;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  & span{
+    color: white;
+    font-size: 24px;
+    position: absolute;
+  }
+  `;
 
 const GameBox = styled.div`
- height: ${(props) => props.height}px;
- width: ${(props) => props.width}px;
- background-color: cyan;
- overflow: hidden;
-`;
+  height: ${(props) => props.height}px;
+  width: ${(props) => props.width}px;
+  background-color: cyan;
+  overflow: hidden;
+  `;
 
 const Obstacle = styled.div`
-position: relative;
-top: ${(props) => props.top}px;  
-background-color: green;
-width: ${(props) => props.width}px;
-height: ${(props) => props.height}px;
-left: ${(props) => props.left}px;
-
-`
+  position: relative;
+  top: ${(props) => props.top}px;  
+  background-color: #87a833;
+  width: ${(props) => props.width}px;
+  height: ${(props) => props.height}px;
+  left: ${(props) => props.left}px;
+`;
 
 const birdSize = 20;
 const gameWidth = 1000;
@@ -62,7 +58,6 @@ function Gameboard() {
   const bottomObstacleHeight = gameHeight - obstacleGap - obstacleHeight;
 
   useEffect(() => {
-
     let timeId;
     if (gameHasStarted && birdPosition < gameHeight - birdSize) {
       timeId = setInterval(() => {

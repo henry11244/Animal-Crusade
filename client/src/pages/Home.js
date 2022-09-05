@@ -2,7 +2,6 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 
 import Gameboard from "../components/Gameboard";
-import Timer from "../components/Timer";
 
 import { QUERY_USER } from "../utils/queries";
 

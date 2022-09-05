@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
-
 const Login = (props) => {
   const [userLogin, setUserLogin] = useState({ username: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN);
@@ -78,7 +77,6 @@ const Login = (props) => {
                       id="pwd"
                       onChange={handleChange}
                     />
-
                     <label className="form-label" htmlFor="password">
                       Password
                     </label>
@@ -92,7 +90,6 @@ const Login = (props) => {
                   </button>
                 </form>
               )}
-
               {error && (
                 <div className="my-3 p-3 bg-danger text-white">
                   {error.message}
