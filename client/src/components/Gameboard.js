@@ -3,10 +3,6 @@ import styled from 'styled-components';
 import Timer from "../components/Timer";
 import "../styles.css";
 
-// import { GameEngine } from "react-game-engine";
-// import { Jump, GameControls } from "../systems";
-// import { Dot, Blocks } from "../renderers";
-
 const Bird = styled.div`
 position: absolute;
 background-color: red;
@@ -49,57 +45,8 @@ const gameHeight = 700;
 const Gravity = 6;
 const JumpHeight = 100;
 const obstacleWidth = 40;
+const obstacleBottomWidth = 40;
 const obstacleGap = 220;
-
-// const styles = {
-//   container: {
-//     width: "100%",
-//     height: "100%"
-//   }
-// };
-
-// export default class App extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       running: false,
-//       paused: false
-//     };
-//     this.gameEngine = React.createRef();
-//   }
-//   componentDidMount() {
-//     document.addEventListener("keydown", this.handleKeyDown, false);
-//   }
-
-//   componentWillUnmount() {
-//     document.removeEventListener("keydown", this.handleKeyDown, false);
-//   }
-
-//   handleKeyDown = e => {
-//     e.preventDefault();
-
-//     if (e.keyCode === 32 && this.state.running === false) {
-//       this.setState({
-//         running: true
-//       });
-//       this.gameEngine.current.start();
-//     } else if (e.keyCode === 32 && this.state.paused) {
-//       this.setState({
-//         paused: false
-//       });
-//       this.gameEngine.current.dispatch({ type: "unpaused" });
-//     } else if (e.keyCode === 27) {
-//       this.setState({
-//         paused: true
-//       });
-//       this.gameEngine.current.dispatch({ type: "pause" });
-//     }
-//   };
-
-//   handleGameEvent = e => {
-//     console.log("game event => ", e);
-//   };
-// };
 
 function Gameboard() {
   const [birdPosition, setBirdPosition] = useState(250);
@@ -144,8 +91,9 @@ function Gameboard() {
     const hasCollidedWithTopObsticle = birdPosition >= 0 && birdPosition < obstacleHeight;
     const hasCollidedWithBottomObsticle = birdPosition <= 500 && birdPosition >= 500 - bottomObstacleHeight;
 
-    if (obstacleLeft >= 0 && obstacleLeft <= obstacleWidth && (hasCollidedWithBottomObsticle || hasCollidedWithTopObsticle)) {
+    if (obstacleLeft >= 0 && (obstacleLeft <= obstacleWidth && obstacleLeft <= obstacleBottomWidth)&& (hasCollidedWithBottomObsticle || hasCollidedWithTopObsticle)) {
       setGameHasStarted(false);
+      setScore(-1)
     }
   }, [birdPosition, obstacleHeight, bottomObstacleHeight, obstacleLeft]);
 
@@ -162,9 +110,6 @@ function Gameboard() {
 
   return (
     <>
-      <div className="game border col-9">
-
-      </div>
       <Box onClick={handleClick}>
         <GameBox height={gameHeight} width={gameWidth}>
           <Obstacle
@@ -174,10 +119,10 @@ function Gameboard() {
             left={obstacleLeft}
           />
           <Obstacle
-            top={gameHeight - (obstacleHeight + bottomObstacleHeight)}
-            width={obstacleWidth}
-            height={bottomObstacleHeight}
-            left={obstacleLeft}
+          top= {gameHeight - (obstacleHeight + bottomObstacleHeight)}
+          width= {obstacleBottomWidth}
+          height= {bottomObstacleHeight}
+          left= {obstacleLeft}
           />
           <Bird size={birdSize} top={birdPosition} />
         </GameBox>
