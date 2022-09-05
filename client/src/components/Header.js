@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import Auth from "../utils/auth";
 
 const Header = () => {
@@ -8,8 +7,9 @@ const Header = () => {
     event.preventDefault();
     Auth.logout();
   };
+  
   return (
-    <header className="bg-info text-dark mb-4 py-3 display-flex align-center">
+    <header className="text-dark mb-4 py-3 display-flex align-center" style={{backgroundColor: "#87a833"}}>
       <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
         <Link className="text-dark" to="/">
           <h1 className="m-0" style={{ fontSize: "3rem" }}>
