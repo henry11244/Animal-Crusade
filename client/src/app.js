@@ -75,7 +75,7 @@ function App() {
        <div>
          <Header />
        </div>
-       <div className="container col-12">
+       <div className="container col-12 justify-content-center">
          <Routes>
          {Auth.loggedIn() ? (
             <>
