@@ -57,9 +57,11 @@ Once you have navagated to the deployed link below:
 - During each round, your score is presented at the top of the game window and highscores are saved to your account. 
 
 <b>Signup & Login</b>
+<br>
 ![signup & Login Gif](img/signup%26login.gif)
 
 <b>Game:</b>
+<br>
 ![signup & Login Gif](img/game.gif)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
