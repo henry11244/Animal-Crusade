@@ -34,8 +34,7 @@
 
 ## About The Project
 
-
-
+The motivation behind this project was to build an interactive game inspired by the most talented developer in the known universe, the one and only, Jerome Chenette. Utilizing the magic of react-game-engine, we created a game inspired by Flappy Bird. The goal of the game is help Jerome navigate through obstacals to complete a intense bootcamp. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -44,29 +43,21 @@
 * JavaScript
 * React
 * CSS
-* HTML
-
-
-Bulma was used as the CSS framework for building the app layout. Javascript libaries used include Anime JS for the animation of the search container and jQuery for event handling as well as AJAX for API data retrieval. 
+* React-game-engine
+* Styled-components
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Instructions
 
-Once you have navagated to the webpage: 
+Once you have navagated to the deployed link below: 
 
-- You are presented with search bar and restaurant filter for cost and food type.
-- Once a day, you are required to enable the cors-anywhere.herokuapp.com/corsdemo proxy server to enable to Yelp API which is linked at the top of the page.
-- If you enter a restaurant name, select your desired filters and submit the form using either the search button or the enter key, you are presented with a list of resturants that fill those filter criterion as well as a background image of that city. Information related to each restaurant include their ratings, phone number, address and link to the restaurant's Yelp page.
-- You are able to resubmit new searches once a search is complete.
+- Are prompted to create an account or login if you already have an account.
+- Once you login, you are able to play the game helping Jerome navigate through the bootcamp.
+- During each round, your score is presented at the top of the game window and highscores are saved to your account. 
 
 ![Overview](assets/overviewgif.gif)
 
-![anime.js](assets/animegif.gif)
-
-![Unsplash API](assets/unsplashgif.gif)
-
-![Changing Screen Size](assets/screensizegif.gif)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -84,6 +75,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 [Sufyaan Vaidya](vaidyasufyaan@gmail.com)
 
-[Deployed Link](https://henry11244.github.io/letsTacoBoutFood/)
+[Repository Link](https://henry11244.github.io/animal-crusade/)
 
 
