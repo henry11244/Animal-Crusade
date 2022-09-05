@@ -50,10 +50,10 @@ const obstacleGap = 220;
 
 function Gameboard() {
   const [birdPosition, setBirdPosition] = useState(250);
-  const [ gameHasStarted, setGameHasStarted ] = useState(false);
-  const [ obstacleHeight, setObstacleHeight ] = useState(100);
-  const [ obstacleLeft, setObstacleLeft ] = useState(gameWidth - obstacleWidth);
-  const [ score, setScore ] = useState(0);
+  const [gameHasStarted, setGameHasStarted] = useState(false);
+  const [obstacleHeight, setObstacleHeight] = useState(100);
+  const [obstacleLeft, setObstacleLeft] = useState(gameWidth - obstacleWidth);
+  const [score, setScore] = useState(0);
 
   const bottomObstacleHeight = gameHeight - obstacleGap - obstacleHeight;
 
@@ -68,11 +68,11 @@ function Gameboard() {
     return () => {
       clearInterval(timeId)
     }
-  }, [ birdPosition, gameHasStarted ]);
+  }, [birdPosition, gameHasStarted]);
 
   useEffect(() => {
     let obstacleId;
-    if(gameHasStarted && obstacleLeft >= -obstacleWidth) {
+    if (gameHasStarted && obstacleLeft >= -obstacleWidth) {
       obstacleId = setInterval(() => {
         setObstacleLeft((obstacleLeft) => obstacleLeft - 7);
       }, 24);
@@ -99,7 +99,7 @@ function Gameboard() {
 
   const handleClick = () => {
     let newBirdPosition = birdPosition - JumpHeight;
-    if(!gameHasStarted) {
+    if (!gameHasStarted) {
       setGameHasStarted(true);
     } else if (newBirdPosition < 0) {
       setBirdPosition(0);
@@ -113,10 +113,10 @@ function Gameboard() {
       <Box onClick={handleClick}>
         <GameBox height={gameHeight} width={gameWidth}>
           <Obstacle
-          top= {0}
-          width= {obstacleWidth}
-          height= {obstacleHeight}
-          left= {obstacleLeft}
+            top={0}
+            width={obstacleWidth}
+            height={obstacleHeight}
+            left={obstacleLeft}
           />
           <Obstacle
           top= {gameHeight - (obstacleHeight + bottomObstacleHeight)}
