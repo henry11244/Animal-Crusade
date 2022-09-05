@@ -11,11 +11,11 @@ const Home = () => {
   console.log(data);
 
   return (
-    <main className="d-flex col-12  ">
+    <main className="d-flex col-12">
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div className="col-10">
+        <div className="col-12">
           <Gameboard />
         </div>
       )}
