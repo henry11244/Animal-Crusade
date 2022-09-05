@@ -5,10 +5,14 @@ import "../styles.css";
 
 const Bird = styled.div`
 position: absolute;
-background-color: red;
+
 height: ${(props) => props.size}px;
 width: ${(props) => props.size}px;
 top: ${(props) => props.top}px;
+background: url('mvp.jfif');
+
+background-repeat: no-repeat;
+  background-size: 20px 20px;
 border-radius: 50%`;
 
 const Box = styled.div`
@@ -91,7 +95,7 @@ function Gameboard() {
     const hasCollidedWithTopObsticle = birdPosition >= 0 && birdPosition < obstacleHeight;
     const hasCollidedWithBottomObsticle = birdPosition <= 500 && birdPosition >= 500 - bottomObstacleHeight;
 
-    if (obstacleLeft >= 0 && (obstacleLeft <= obstacleWidth && obstacleLeft <= obstacleBottomWidth)&& (hasCollidedWithBottomObsticle || hasCollidedWithTopObsticle)) {
+    if (obstacleLeft >= 0 && (obstacleLeft <= obstacleWidth && obstacleLeft <= obstacleBottomWidth) && (hasCollidedWithBottomObsticle || hasCollidedWithTopObsticle)) {
       setGameHasStarted(false);
       setScore(-1)
     }
@@ -119,10 +123,10 @@ function Gameboard() {
             left={obstacleLeft}
           />
           <Obstacle
-          top= {gameHeight - (obstacleHeight + bottomObstacleHeight)}
-          width= {obstacleBottomWidth}
-          height= {bottomObstacleHeight}
-          left= {obstacleLeft}
+            top={gameHeight - (obstacleHeight + bottomObstacleHeight)}
+            width={obstacleBottomWidth}
+            height={bottomObstacleHeight}
+            left={obstacleLeft}
           />
           <Bird size={birdSize} top={birdPosition} />
         </GameBox>
