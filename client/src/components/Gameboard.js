@@ -59,11 +59,13 @@ function Gameboard() {
 
 
 
-  const [randomNumber, setRandomNumber] = useState(randomNum(4));
+  const [randomNumber, setRandomNumber] = useState(randomNum(3));
 
   useEffect(() => {
-    const interval = setInterval(() => setRandomNumber(randomNum(4)), 5000);
+    const interval = setInterval(() => setRandomNumber(randomNum(3)), 3500);
+
   }, [])
+
 
   const Obstacle = styled.div`
   position: relative;
