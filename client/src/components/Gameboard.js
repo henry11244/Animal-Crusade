@@ -33,7 +33,9 @@ const GameBox = styled.div`
 const Obstacle = styled.div`
   position: relative;
   top: ${(props) => props.top}px;  
-  background-color: #87a833;
+  background-repeat: no-repeat;
+  background: url('brickwall.jpg');
+  background-size: 20px 40px;
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
   left: ${(props) => props.left}px;
@@ -82,7 +84,7 @@ function Gameboard() {
       setObstacleLeft(gameWidth - obstacleWidth);
       setObstacleHeight(
         Math.floor(Math.random() * (gameHeight - obstacleGap))
-        );
+      );
       setScore(score => score + 1);
     }
   }, [gameHasStarted, obstacleLeft]);
