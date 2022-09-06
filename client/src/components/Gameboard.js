@@ -1,14 +1,23 @@
 import { React, useEffect, useState } from "react";
 import styled from 'styled-components';
-
-
+import Modal from 'react-modal';
 
 // this is the styling for the 'bird' aka jerome.
-
 function randomNum(max) {
   return Math.floor(Math.random() * max);
-}
+};
 
+// modal styling
+const customStyles = {
+  content: {
+    top: '25%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
 
 const Bird = styled.div`
   position: absolute;
@@ -51,21 +60,19 @@ const JumpHeight = 100;
 const obstacleWidth = 30;
 const obstacleGap = 250;
 
-
 // this is the function that runs the game as a whole
 function Gameboard() {
 
+  // useState hook for modal
+  let subtitle;
+  const [modalIsOpen, setIsOpen] = useState(false);
+
   // this sets the birds start position
-
-
-
   const [randomNumber, setRandomNumber] = useState(randomNum(3));
 
   useEffect(() => {
     const interval = setInterval(() => setRandomNumber(randomNum(3)), 3500);
-
   }, [])
-
 
   const Obstacle = styled.div`
   position: relative;
@@ -78,7 +85,6 @@ function Gameboard() {
   left: ${(props) => props.left}px;
 `;
 
-
   const [birdPosition, setBirdPosition] = useState(250);
   // this stops the game from starting constantly
   const [gameHasStarted, setGameHasStarted] = useState(false);
@@ -88,6 +94,12 @@ function Gameboard() {
   const [obstacleLeft, setObstacleLeft] = useState(gameWidth - obstacleWidth);
   // this sets the user score
   const [score, setScore] = useState(-1);
+
+  // closes the modal when the close button is clicked and sets the score back to 0
+  function closeModal() {
+    setIsOpen(false)
+    setScore(0)
+  };
 
   // this sets the bottom obstacle height 
   const bottomObstacleHeight = gameHeight - obstacleGap - obstacleHeight;
@@ -126,14 +138,16 @@ function Gameboard() {
     }
   }, [gameHasStarted, obstacleLeft]);
 
+  var modalScore = score -2;
+
   // this effect is for the collisions on the pipes
   useEffect(() => {
     const hasCollidedWithTopObstacle = birdPosition >= 0 && birdPosition < obstacleHeight;
     const hasCollidedWithBottomObstacle = birdPosition <= 500 && birdPosition >= 500 - bottomObstacleHeight;
 
     if (obstacleLeft >= 0 && obstacleLeft <= obstacleWidth && (hasCollidedWithTopObstacle || hasCollidedWithBottomObstacle)) {
+      setIsOpen(true)
       setGameHasStarted(false);
-      setScore(-1);
     }
   }, [birdPosition, obstacleHeight, bottomObstacleHeight, obstacleLeft, score]);
 
@@ -171,6 +185,17 @@ function Gameboard() {
         </GameBox>
         <span> {score} </span>
       </Box>
+      <div>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Score: <span> {modalScore} </span></h2>
+          <button onClick={closeModal}>close</button>
+        </Modal>
+      </div>
     </>
   );
 };
