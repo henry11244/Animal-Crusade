@@ -55,7 +55,7 @@ const obstacleGap = 250;
 // this is the function that runs the game as a whole
 function Gameboard() {
 
-// this sets the birds start position
+  // this sets the birds start position
 
 
 
@@ -76,21 +76,21 @@ function Gameboard() {
   left: ${(props) => props.left}px;
 `;
 
->
+
   const [birdPosition, setBirdPosition] = useState(250);
-// this stops the game from starting constantly
+  // this stops the game from starting constantly
   const [gameHasStarted, setGameHasStarted] = useState(false);
-// this sets the top obstacle height
+  // this sets the top obstacle height
   const [obstacleHeight, setObstacleHeight] = useState(200);
-// this reads the left right position of the bird
+  // this reads the left right position of the bird
   const [obstacleLeft, setObstacleLeft] = useState(gameWidth - obstacleWidth);
-// this sets the user score
+  // this sets the user score
   const [score, setScore] = useState(-1);
 
-// this sets the bottom obstacle height 
+  // this sets the bottom obstacle height 
   const bottomObstacleHeight = gameHeight - obstacleGap - obstacleHeight;
 
-// this effect checks to see if the game started and makes the bird move 
+  // this effect checks to see if the game started and makes the bird move 
   useEffect(() => {
     let timeId;
     if (gameHasStarted && birdPosition < gameHeight - birdSize) {
@@ -124,7 +124,7 @@ function Gameboard() {
     }
   }, [gameHasStarted, obstacleLeft]);
 
-// this effect is for the collisions on the pipes
+  // this effect is for the collisions on the pipes
   useEffect(() => {
     const hasCollidedWithTopObstacle = birdPosition >= 0 && birdPosition < obstacleHeight;
     const hasCollidedWithBottomObstacle = birdPosition <= 500 && birdPosition >= 500 - bottomObstacleHeight;
