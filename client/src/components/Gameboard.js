@@ -1,9 +1,14 @@
 import { React, useEffect, useState } from "react";
 import styled from 'styled-components';
 
+
+
+// this is the styling for the 'bird' aka jerome.
+
 function randomNum(max) {
   return Math.floor(Math.random() * max);
 }
+
 
 const Bird = styled.div`
   position: absolute;
@@ -16,6 +21,7 @@ const Bird = styled.div`
   border-radius: 50%
   `;
 
+// this is the styling for the games container
 const Box = styled.div`
   display: flex;
   width: 100%;
@@ -27,6 +33,7 @@ const Box = styled.div`
   }
   `;
 
+// this is the styling for that actual game inside the container
 const GameBox = styled.div`
   height: ${(props) => props.height}px;
   width: ${(props) => props.width}px;
@@ -35,7 +42,7 @@ const GameBox = styled.div`
   `;
 
 
-
+// these are the variables that control the size of the game entities
 const birdSize = 50;
 const gameWidth = 500;
 const gameHeight = 500;
@@ -44,7 +51,12 @@ const JumpHeight = 100;
 const obstacleWidth = 30;
 const obstacleGap = 250;
 
+
+// this is the function that runs the game as a whole
 function Gameboard() {
+
+// this sets the birds start position
+
 
 
   const [randomNumber, setRandomNumber] = useState(randomNum(4));
@@ -64,14 +76,21 @@ function Gameboard() {
   left: ${(props) => props.left}px;
 `;
 
+>
   const [birdPosition, setBirdPosition] = useState(250);
+// this stops the game from starting constantly
   const [gameHasStarted, setGameHasStarted] = useState(false);
+// this sets the top obstacle height
   const [obstacleHeight, setObstacleHeight] = useState(200);
+// this reads the left right position of the bird
   const [obstacleLeft, setObstacleLeft] = useState(gameWidth - obstacleWidth);
+// this sets the user score
   const [score, setScore] = useState(-1);
 
+// this sets the bottom obstacle height 
   const bottomObstacleHeight = gameHeight - obstacleGap - obstacleHeight;
 
+// this effect checks to see if the game started and makes the bird move 
   useEffect(() => {
     let timeId;
     if (gameHasStarted && birdPosition < gameHeight - birdSize) {
@@ -84,6 +103,7 @@ function Gameboard() {
     }
   }, [birdPosition, gameHasStarted]);
 
+  // this makes the walls move towards 'jerome'
   useEffect(() => {
     let obstacleId;
     if (gameHasStarted && obstacleLeft >= -obstacleWidth) {
@@ -94,6 +114,7 @@ function Gameboard() {
         clearInterval(obstacleId);
       }
     }
+    // this randomly generates a new wall each time
     else {
       setObstacleLeft(gameWidth - obstacleWidth);
       setObstacleHeight(
@@ -103,6 +124,7 @@ function Gameboard() {
     }
   }, [gameHasStarted, obstacleLeft]);
 
+// this effect is for the collisions on the pipes
   useEffect(() => {
     const hasCollidedWithTopObstacle = birdPosition >= 0 && birdPosition < obstacleHeight;
     const hasCollidedWithBottomObstacle = birdPosition <= 500 && birdPosition >= 500 - bottomObstacleHeight;
@@ -113,6 +135,7 @@ function Gameboard() {
     }
   }, [birdPosition, obstacleHeight, bottomObstacleHeight, obstacleLeft, score]);
 
+  // this function controls the 'jerome' with each click/ aka handling what happens after each click
   const handleClick = () => {
     let newBirdPosition = birdPosition - JumpHeight;
     if (!gameHasStarted) {
@@ -124,6 +147,7 @@ function Gameboard() {
     }
   };
 
+  // this is generating the game through react
   return (
     <>
       <Box onClick={handleClick}>
