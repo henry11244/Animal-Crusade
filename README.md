@@ -1,4 +1,4 @@
-# Animal-Crusade
+# Bootcamp Adventures
 
 <div id="top"></div>
 
@@ -6,7 +6,7 @@
 <div align="center">
 
 
-<h3 align="center">Animal Crusade</h3>
+<h3 align="center">Bootcamp Adventures</h3>
 
   <p align="center">
     Help Jerome get to the end of the bootcamp
@@ -80,6 +80,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 [Sufyaan Vaidya](vaidyasufyaan@gmail.com)
 
-[Repository Link](https://github.com/henry11244/Animal-Crusade)
+[Repository Link](https://github.com/henry11244/Bootcamp-Adventures)
 
 
