@@ -52,7 +52,7 @@ function Gameboard() {
   const [gameHasStarted, setGameHasStarted] = useState(false);
   const [obstacleHeight, setObstacleHeight] = useState(200);
   const [obstacleLeft, setObstacleLeft] = useState(gameWidth - obstacleWidth);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(-1);
 
   const bottomObstacleHeight = gameHeight - obstacleGap - obstacleHeight;
 
@@ -93,8 +93,9 @@ function Gameboard() {
 
     if (obstacleLeft >= 0 && obstacleLeft <= obstacleWidth && (hasCollidedWithTopObstacle || hasCollidedWithBottomObstacle)) {
       setGameHasStarted(false);
+      setScore(-1);
     }
-  }, [birdPosition, obstacleHeight, bottomObstacleHeight, obstacleLeft]);
+  }, [birdPosition, obstacleHeight, bottomObstacleHeight, obstacleLeft, score]);
 
   const handleClick = () => {
     let newBirdPosition = birdPosition - JumpHeight;
