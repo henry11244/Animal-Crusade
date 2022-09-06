@@ -1,4 +1,4 @@
-# Bootcamp Adventures
+# Animal-Crusade
 
 <div id="top"></div>
 
@@ -6,7 +6,7 @@
 <div align="center">
 
 
-<h3 align="center">Bootcamp Adventures</h3>
+<h3 align="center">Animal Crusade</h3>
 
   <p align="center">
     Help Jerome get to the end of the bootcamp
@@ -56,13 +56,17 @@ Once you have navagated to the deployed link below:
 - Once you login, you are able to play the game helping Jerome navigate through the bootcamp.
 - During each round, your score is presented at the top of the game window and highscores are saved to your account. 
 
-<b>Signup & Login</b>
+<b>Signup</b>
 <br>
-![signup & Login Gif](img/signup%26login.gif)
+![Signup Gif](readme_gifs/signup.gif)
+
+<b>Login</b>
+<br>
+![Login Gif](readme_gifs/login.gif)
 
 <b>Game:</b>
 <br>
-![signup & Login Gif](img/game.gif)
+![Game Gif](readme_gifs/game.gif)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -80,6 +84,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 [Sufyaan Vaidya](vaidyasufyaan@gmail.com)
 
-[Repository Link](https://github.com/henry11244/Bootcamp-Adventures)
+[Repository Link](https://github.com/henry11244/Animal-Crusade)
 
 

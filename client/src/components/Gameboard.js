@@ -2,7 +2,14 @@ import { React, useEffect, useState } from "react";
 import styled from 'styled-components';
 
 
+
 // this is the styling for the 'bird' aka jerome.
+
+function randomNum(max) {
+  return Math.floor(Math.random() * max);
+}
+
+
 const Bird = styled.div`
   position: absolute;
   height: ${(props) => props.size}px;
@@ -34,17 +41,6 @@ const GameBox = styled.div`
   overflow: hidden;
   `;
 
-// this is the styling for the 'pipes' aka the TA's
-const Obstacle = styled.div`
-  position: relative;
-  top: ${(props) => props.top}px;  
-  background-repeat: no-repeat;
-  background: url('brickwall.jpg');
-  background-size: 20px 40px;
-  width: ${(props) => props.width}px;
-  height: ${(props) => props.height}px;
-  left: ${(props) => props.left}px;
-`;
 
 // these are the variables that control the size of the game entities
 const birdSize = 50;
@@ -58,7 +54,29 @@ const obstacleGap = 250;
 
 // this is the function that runs the game as a whole
 function Gameboard() {
+
 // this sets the birds start position
+
+
+
+  const [randomNumber, setRandomNumber] = useState(randomNum(4));
+
+  useEffect(() => {
+    const interval = setInterval(() => setRandomNumber(randomNum(4)), 5000);
+  }, [])
+
+  const Obstacle = styled.div`
+  position: relative;
+  top: ${(props) => props.top}px;  
+  background-repeat: no-repeat;
+  background: url('ta${randomNumber}.jfif');
+  background-size: 40px ;
+  width: ${(props) => props.width}px;
+  height: ${(props) => props.height}px;
+  left: ${(props) => props.left}px;
+`;
+
+>
   const [birdPosition, setBirdPosition] = useState(250);
 // this stops the game from starting constantly
   const [gameHasStarted, setGameHasStarted] = useState(false);
@@ -145,6 +163,7 @@ function Gameboard() {
             width={obstacleWidth}
             height={bottomObstacleHeight}
             left={obstacleLeft}
+
           />
           <Bird size={birdSize} top={birdPosition} />
         </GameBox>
