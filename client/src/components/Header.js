@@ -7,13 +7,13 @@ const Header = () => {
     event.preventDefault();
     Auth.logout();
   };
-  
+
   return (
-    <header className="text-dark mb-4 py-3 display-flex align-center" style={{backgroundColor: "#87a833"}}>
+    <header className="text-dark mb-4 py-3 display-flex align-center" style={{ backgroundColor: "#87a833" }}>
       <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
         <Link className="text-dark" to="/">
           <h1 className="m-0" style={{ fontSize: "3rem" }}>
-            Animal Crusade
+            Bootcamp Adventures
           </h1>
         </Link>
         <div>
