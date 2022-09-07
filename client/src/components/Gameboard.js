@@ -2,6 +2,8 @@ import { React, useEffect, useState } from "react";
 import styled from 'styled-components';
 import Modal from 'react-modal';
 
+Modal.setAppElement("body")
+
 // this is the styling for the 'bird' aka jerome.
 function randomNum(max) {
   return Math.floor(Math.random() * max);
