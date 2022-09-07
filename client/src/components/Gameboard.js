@@ -2,12 +2,14 @@ import { React, useEffect, useState } from "react";
 import styled from 'styled-components';
 import Modal from 'react-modal';
 
-// this is the styling for the 'bird' aka jerome.
+Modal.setAppElement("body");
+
+// this is the styling for the 'bird' aka Jerome
 function randomNum(max) {
   return Math.floor(Math.random() * max);
 };
 
-// modal styling
+// this is the styling for the modal
 const customStyles = {
   content: {
     top: '25%',
@@ -19,36 +21,37 @@ const customStyles = {
   },
 };
 
+// this is the styling for the 'bird' aka Jerome
 const Bird = styled.div`
-  position: absolute;
-  height: ${(props) => props.size}px;
-  width: ${(props) => props.size}px;
-  top: ${(props) => props.top}px;
-  background: url('mvp.jfif');
-  background-repeat: no-repeat;
-  background-size: 60px 60px;
-  border-radius: 50%
-  `;
+ position: absolute;
+ height: ${(props) => props.size}px;
+ width: ${(props) => props.size}px;
+ top: ${(props) => props.top}px;
+ background: url('mvp.jfif');
+ background-repeat: no-repeat;
+ background-size: 60px 60px;
+ border-radius: 50%
+ `;
 
-// this is the styling for the games container
+// this is the styling for the game container
 const Box = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  & span{
-    color: white;
-    font-size: 24px;
-    position: absolute;
-  }
-  `;
+ display: flex;
+ width: 100%;
+ justify-content: center;
+ & span{
+   color: white;
+   font-size: 24px;
+   position: absolute;
+ }
+ `;
 
-// this is the styling for that actual game inside the container
+// this is the styling for the actual game inside the container
 const GameBox = styled.div`
-  height: ${(props) => props.height}px;
-  width: ${(props) => props.width}px;
-  background-color: cyan;
-  overflow: hidden;
-  `;
+ height: ${(props) => props.height}px;
+ width: ${(props) => props.width}px;
+ background-color: cyan;
+ overflow: hidden;
+ `;
 
 
 // these are the variables that control the size of the game entities
@@ -64,7 +67,6 @@ const obstacleGap = 250;
 function Gameboard() {
 
   // useState hook for modal
-  let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
 
   // this sets the birds start position
@@ -74,15 +76,16 @@ function Gameboard() {
     const interval = setInterval(() => setRandomNumber(randomNum(3)), 3500);
   }, [])
 
+  // this is the styling for obstacles
   const Obstacle = styled.div`
-  position: relative;
-  top: ${(props) => props.top}px;  
-  background-repeat: no-repeat;
-  background: url('ta${randomNumber}.jfif');
-  background-size: 40px ;
-  width: ${(props) => props.width}px;
-  height: ${(props) => props.height}px;
-  left: ${(props) => props.left}px;
+ position: relative;
+ top: ${(props) => props.top}px; 
+ background-repeat: no-repeat;
+ background: url('ta${randomNumber}.jfif');
+ background-size: 40px ;
+ width: ${(props) => props.width}px;
+ height: ${(props) => props.height}px;
+ left: ${(props) => props.left}px;
 `;
 
   const [birdPosition, setBirdPosition] = useState(250);
@@ -101,10 +104,10 @@ function Gameboard() {
     setScore(0)
   };
 
-  // this sets the bottom obstacle height 
+  // this sets the bottom obstacle height
   const bottomObstacleHeight = gameHeight - obstacleGap - obstacleHeight;
 
-  // this effect checks to see if the game started and makes the bird move 
+  // this effect checks to see if the game started and makes the bird move
   useEffect(() => {
     let timeId;
     if (gameHasStarted && birdPosition < gameHeight - birdSize) {
@@ -117,7 +120,7 @@ function Gameboard() {
     }
   }, [birdPosition, gameHasStarted]);
 
-  // this makes the walls move towards 'jerome'
+  // this makes the walls move toward 'Jerome'
   useEffect(() => {
     let obstacleId;
     if (gameHasStarted && obstacleLeft >= -obstacleWidth) {
@@ -138,7 +141,7 @@ function Gameboard() {
     }
   }, [gameHasStarted, obstacleLeft]);
 
-  var modalScore = score -2;
+  var modalScore = score - 2;
 
   // this effect is for the collisions on the pipes
   useEffect(() => {
@@ -151,7 +154,7 @@ function Gameboard() {
     }
   }, [birdPosition, obstacleHeight, bottomObstacleHeight, obstacleLeft, score]);
 
-  // this function controls the 'jerome' with each click/ aka handling what happens after each click
+  // this function controls 'Jerome' with each click/ aka handling what happens after each click
   const handleClick = () => {
     let newBirdPosition = birdPosition - JumpHeight;
     if (!gameHasStarted) {
@@ -192,7 +195,7 @@ function Gameboard() {
           style={customStyles}
           contentLabel="Example Modal"
         >
-          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Score: <span> {modalScore} </span></h2>
+          <h2>Score: <span> {modalScore} </span></h2>
           <button onClick={closeModal}>close</button>
         </Modal>
       </div>
