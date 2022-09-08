@@ -44,6 +44,7 @@ The motivation behind this project was to build an interactive game inspired by 
 * React
 * Node.js
 * GraphQL
+* MongoDB
 * React Modal
 * CSS
 * Styled-components
