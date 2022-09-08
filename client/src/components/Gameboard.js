@@ -69,14 +69,13 @@ function Gameboard() {
   // useState hook for modal
   const [modalIsOpen, setIsOpen] = useState(false);
 
-  // this sets the birds start position
+
   const [randomNumber, setRandomNumber] = useState(randomNum(3));
 
   useEffect(() => {
     const interval = setInterval(() => setRandomNumber(randomNum(3)), 3500);
   }, [])
 
-  // this is the styling for obstacles
   const Obstacle = styled.div`
  position: relative;
  top: ${(props) => props.top}px; 
