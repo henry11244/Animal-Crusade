@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
+import { LOGIN } from '../utils/mutations';
 
 const Signup = () => {
+  const [login] = useMutation(LOGIN);
+
   const [newUser, setNewUser] = useState({
     username: "",
     password: "",
@@ -32,6 +35,22 @@ const Signup = () => {
       console.error(e);
     }
   };
+
+  const guestLoginHandle = async (event) => {
+    event.preventDefault();
+    try {
+      const { data } = await login({
+        variables: {
+          username: "guest",
+          password: "password",
+        },
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    };
+  }
 
   return (
     <section className=" text-center text-lg-start">
@@ -95,6 +114,15 @@ const Signup = () => {
                   {error.message}
                 </div>
               )}
+              <form onSubmit={guestLoginHandle}>
+                <button
+                  type="submit"
+                  className="btn btn-primary btn-block mb-4"
+                  style={{ cursor: "pointer" }}
+                >
+                  Play As Guest
+                </button>
+              </form>
             </div>
           </div>
         </div>

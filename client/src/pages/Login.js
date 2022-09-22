@@ -35,6 +35,23 @@ const Login = (props) => {
     });
   };
 
+  const guestLoginHandle = async (event) => {
+    event.preventDefault();
+    try {
+      const { data } = await login({
+        variables: {
+          username: "guest",
+          password: "password",
+        },
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    };
+
+  }
+
   return (
     <section className=" text-center text-lg-start">
       <div className="card mb-3">
@@ -70,7 +87,7 @@ const Login = (props) => {
                   </div>
                   <div className="form-outline mb-4">
                     <input
-                      placeholder="******"
+                      placeholder="password"
                       name="password"
                       type="password"
                       className="form-control"
@@ -88,17 +105,30 @@ const Login = (props) => {
                   >
                     Login
                   </button>
+
                 </form>
+
               )}
               {error && (
                 <div className="my-3 p-3 bg-danger text-white">
                   {error.message}
                 </div>
               )}
+              <form onSubmit={guestLoginHandle}>
+                <button
+                  type="submit"
+                  className="btn btn-primary btn-block mb-4"
+                  style={{ cursor: "pointer" }}
+                >
+                  Play As Guest
+                </button>
+              </form>
             </div>
           </div>
         </div>
+
       </div>
+
     </section>
   )
 };

@@ -5,15 +5,19 @@ db.once('open', async () => {
   await User.deleteMany();
   await User.create({
     username: "chelseaburnham",
-    password: "passwords"
+    password: "password"
   });
   await User.create({
     username: "henrynguyen",
-    password: "passwords"
+    password: "password"
   });
   await User.create({
     username: "sufyaanvaidya",
-    password: "passwords"
+    password: "password"
+  });
+  await User.create({
+    username: "guest",
+    password: "password"
   });
   console.log('users seeded');
   process.exit();
