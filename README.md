@@ -55,7 +55,7 @@ The motivation behind this project was to build an interactive game inspired by 
 
 Once you have navagated to the deployed link below:
 <br> 
-[Deployed Link](https://bootcamp-adventures.herokuapp.com/)
+[Deployed Link](https://jeromes-bootcamp-adventure.herokuapp.com/)
 
 - Are prompted to create an account or login if you already have an account.
 - Once you login, you are able to play the game helping Jerome navigate through the bootcamp by avoiding the TA towers
