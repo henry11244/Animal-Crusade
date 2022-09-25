@@ -9,7 +9,7 @@ const Header = () => {
   };
 
   return (
-    <header className="text-dark mb-4 py-3 display-flex align-center" style={{ backgroundColor: "#87a833" }}>
+    <header className="text-dark mb-4 py-3 display-flex align-center" style={{ backgroundColor: "#38A3A5" }}>
       <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
         <Link className="text-dark" to="/">
           <h1 className="m-0" style={{ fontSize: "3rem" }}>
@@ -19,7 +19,7 @@ const Header = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              <button className="btn btn-lg btn-primary m-2" onClick={logout}>
                 Logout
               </button>
             </>
@@ -28,7 +28,7 @@ const Header = () => {
               <Link className="btn btn-lg btn-primary m-2" to="/login">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              <Link className="btn btn-lg btn-primary m-2" to="/signup">
                 Signup
               </Link>
             </>

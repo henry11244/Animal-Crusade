@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import styled from 'styled-components';
 import Modal from 'react-modal';
+import '../app.css';
 
 Modal.setAppElement("body");
 
@@ -49,7 +50,7 @@ const Box = styled.div`
 const GameBox = styled.div`
  height: ${(props) => props.height}px;
  width: ${(props) => props.width}px;
- background-color: cyan;
+ background-color: #A3CEF1;
  overflow: hidden;
  `;
 
@@ -68,21 +69,19 @@ function Gameboard() {
 
   // useState hook for modal
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [themeSong, setthemeSong] = useState(false);
+  // const [themeSong, setthemeSong] = useState(false);
 
+  // var theme_song = new Audio("/mario_theme.mp3")
+  // var jump_sound = new Audio("/mario_jump.mp3")
 
-  var theme_song = new Audio("/mario_theme.mp3")
-  var jump_sound = new Audio("/mario_jump.mp3")
+  // const play = () => {
+  //   this.play()
+  // }
 
-  const play = () => {
-    this.play()
-  }
+  // const audio_start = (jump) => {
+  //   jump.play()
 
-  const audio_start = (jump) => {
-    jump.play()
-
-  }
-
+  // }
 
   const [randomNumber, setRandomNumber] = useState(randomNum(3));
 
@@ -190,7 +189,7 @@ function Gameboard() {
 
       <Box onClick={() => {
         handleClick();
-        audio_start(jump_sound);
+        // audio_start(jump_sound);
 
       }} >
         <GameBox height={gameHeight} width={gameWidth}>
