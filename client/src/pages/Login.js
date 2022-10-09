@@ -6,6 +6,7 @@ import Auth from '../utils/auth';
 
 const Login = (props) => {
   const [userLogin, setUserLogin] = useState({ username: "", password: "" });
+  const [highScore, setHighScore] = useState([]);
   const [login, { error, data }] = useMutation(LOGIN);
 
   const handleChange = (event) => {
@@ -22,6 +23,7 @@ const Login = (props) => {
     try {
       const { data } = await login({
         variables: { ...userLogin },
+
       });
 
       Auth.login(data.login.token);
@@ -44,7 +46,7 @@ const Login = (props) => {
           password: "password",
         },
       });
-
+      setHighScore(data.highScore)
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);

@@ -23,13 +23,15 @@ class Auth {
     return localStorage.getItem("id_token");
   }
 
-  login(idToken) {
+  login(idToken, highScore) {
     localStorage.setItem("id_token", idToken);
+    localStorage.setItem("highScore", highScore);
     window.location.assign("/");
   }
 
   logout() {
     localStorage.removeItem("id_token");
+    localStorage.removeItem("highScore");
     window.location.reload();
   }
 }

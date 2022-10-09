@@ -5,7 +5,7 @@ import Gameboard from "../components/Gameboard";
 const Home = () => {
 
   return (
-    <main className="d-flex col-12">
+    <main className="d-flex col-12 justify-content-center">
       <div class='light x1'></div>
       <div class='light x2'></div>
       <div class='light x3'></div>
@@ -15,7 +15,7 @@ const Home = () => {
       <div class='light x7'></div>
       <div class='light x8'></div>
       <div class='light x9'></div>
-      <div className="col-12">
+      <div className="col-12 d-flex justify-content-center">
         <Gameboard />
       </div>
     </main>
