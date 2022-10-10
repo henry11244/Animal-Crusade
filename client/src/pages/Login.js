@@ -26,7 +26,7 @@ const Login = (props) => {
 
       });
 
-      Auth.login(data.login.token);
+      Auth.login(data.login.token, 14);
     } catch (e) {
       console.error(e);
     };
@@ -46,8 +46,9 @@ const Login = (props) => {
           password: "password",
         },
       });
+      console.log(data.login.user.highScore)
       setHighScore(data.highScore)
-      Auth.login(data.login.token);
+      Auth.login(data.login.token, data.login.user.highScore);
     } catch (e) {
       console.error(e);
     };
