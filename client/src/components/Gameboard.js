@@ -65,23 +65,15 @@ const obstacleWidth = 30;
 const obstacleGap = 250;
 
 // this is the function that runs the game as a whole
-function Gameboard() {
+function Gameboard(props) {
 
+  // var highscore = props.highScore
+
+  // if(highscore < score ){
+  //   props.sethighScore(score)
+  // }
   // useState hook for modal
   const [modalIsOpen, setIsOpen] = useState(false);
-  // const [themeSong, setthemeSong] = useState(false);
-
-  // var theme_song = new Audio("/mario_theme.mp3")
-  // var jump_sound = new Audio("/mario_jump.mp3")
-
-  // const play = () => {
-  //   this.play()
-  // }
-
-  // const audio_start = (jump) => {
-  //   jump.play()
-
-  // }
 
   const [randomNumber, setRandomNumber] = useState(randomNum(3));
 
@@ -142,8 +134,8 @@ function Gameboard() {
       return () => {
         clearInterval(obstacleId);
       }
-
     }
+
     // this randomly generates a new wall each time
     else {
       setObstacleLeft(gameWidth - obstacleWidth);
@@ -160,7 +152,6 @@ function Gameboard() {
   useEffect(() => {
     const hasCollidedWithTopObstacle = birdPosition >= 0 && birdPosition < obstacleHeight;
     const hasCollidedWithBottomObstacle = birdPosition <= 500 && birdPosition >= 500 - bottomObstacleHeight;
-
     if (obstacleLeft >= 0 && obstacleLeft <= obstacleWidth && (hasCollidedWithTopObstacle || hasCollidedWithBottomObstacle)) {
       setIsOpen(true)
       setGameHasStarted(false)
@@ -179,8 +170,6 @@ function Gameboard() {
 
     }
   };
-
-
 
   // this is generating the game through react
   return (

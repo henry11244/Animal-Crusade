@@ -2,7 +2,7 @@ import React from "react";
 
 import Gameboard from "../components/Gameboard";
 
-const Home = () => {
+const Home = (props) => {
 
   return (
     <main className="d-flex col-12 justify-content-center">
@@ -16,7 +16,7 @@ const Home = () => {
       <div class='light x8'></div>
       <div class='light x9'></div>
       <div className="col-12 d-flex justify-content-center">
-        <Gameboard />
+        <Gameboard highScore={props.highScore} sethighScore={props.sethighScore} />
       </div>
     </main>
   );

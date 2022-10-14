@@ -21,7 +21,7 @@ db.once('open', async () => {
   await User.create({
     username: "guest",
     password: "password",
-    highScore: '100'
+    highScore: '1'
   });
   console.log('users seeded');
   process.exit();

@@ -12,6 +12,14 @@ body {
     animation: fadeIn 1 1s ease-out;
 }
 
+.highscore {
+    font-weight: bold;
+}
+
+.highscore div {
+    color: red
+}
+
 .light {
     position: absolute;
     width: 0px;

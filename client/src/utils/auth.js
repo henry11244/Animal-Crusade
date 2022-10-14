@@ -24,7 +24,6 @@ class Auth {
   }
 
   login(idToken, highScore) {
-
     localStorage.setItem("id_token", idToken);
     localStorage.setItem("highScore", highScore);
     window.location.assign("/");

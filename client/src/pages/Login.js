@@ -6,7 +6,6 @@ import Auth from '../utils/auth';
 
 const Login = (props) => {
   const [userLogin, setUserLogin] = useState({ username: "", password: "" });
-  const [highScore, setHighScore] = useState([]);
   const [login, { error, data }] = useMutation(LOGIN);
 
   const handleChange = (event) => {
@@ -46,14 +45,14 @@ const Login = (props) => {
           password: "password",
         },
       });
-      console.log(data.login.user.highScore)
-      setHighScore(data.highScore)
-      Auth.login(data.login.token, data.login.user.highScore);
+      Auth.login(data.login.token, data.login.user.highScore)
+
     } catch (e) {
       console.error(e);
     };
-
   }
+
+
 
   return (
     <section className=" text-center text-lg-start">

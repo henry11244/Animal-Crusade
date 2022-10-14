@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 
-const Header = () => {
+const Header = (props) => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
+
+  if (JSON.parse(localStorage.getItem('highScore') !== null)) { props.sethighScore(JSON.parse(localStorage.getItem('highScore'))) }
 
   return (
     <header className="text-dark mb-4 py-3 display-flex align-center" style={{ backgroundColor: "#38A3A5" }}>
@@ -22,6 +24,7 @@ const Header = () => {
               <button className="btn btn-lg btn-primary m-2" onClick={logout}>
                 Logout
               </button>
+              <div className='highscore'>Highscore: <br></br><div>{props.highScore}</div></div>
             </>
           ) : (
             <>
@@ -34,6 +37,7 @@ const Header = () => {
             </>
           )}
         </div>
+
       </div>
     </header>
   );

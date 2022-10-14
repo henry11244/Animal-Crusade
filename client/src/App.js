@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ApolloClient,
   InMemoryCache,
@@ -35,22 +35,25 @@ const client = new ApolloClient({
 });
 
 function App() {
+
+  const [highScore, sethighScore] = useState([0]);
+
   return (
     <ApolloProvider client={client}>
       <div className="d-flex flex-column justify-flex-start min-100-vh">
         <div>
-          <Header />
+          <Header highScore={highScore} sethighScore={sethighScore} />
         </div>
         <div className="container col-12 justify-content-center">
           <Routes>
             {Auth.loggedIn() ? (
               <>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Home highScore={highScore} sethighScore={sethighScore} />} />
               </>
             ) : (
               <>
-                <Route path="/" element={<Login />} />
-                <Route path="/login" element={<Login />} />
+                <Route path="/" element={<Login sethighScore={sethighScore} />} />
+                <Route path="/login" element={<Login sethighScore={sethighScore} />} />
                 <Route path="/signup" element={<Signup />} />
               </>
             )}
@@ -61,5 +64,6 @@ function App() {
     </ApolloProvider >
   );
 };
+
 
 export default App;
